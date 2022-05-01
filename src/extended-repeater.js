@@ -15,11 +15,14 @@ const { NotImplementedError } = require('../extensions/index.js');
  * => 'STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS'
  *
  */
-function repeater(/* str, options */) {
-  throw new NotImplementedError('Not implemented');
+function repeater(str, options) {
+
+  let arr = str.split('')
   // remove line with error and write your code here
 }
 
 module.exports = {
   repeater
 };
+
+
