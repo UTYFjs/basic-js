@@ -18,7 +18,8 @@ const { NotImplementedError } = require('../extensions/index.js');
 function repeater(str, options) {
   let arrAddition =[];
   let addition='';
-  if(options.addition){addition = options.addition};
+  let string = String(str);
+  if(options.addition !== undefined){addition = String(options.addition) };
   if(options.additionRepeatTimes){
     for( let i =0; i<options.additionRepeatTimes; i++){
       arrAddition.push(addition);
@@ -28,19 +29,21 @@ function repeater(str, options) {
   }
   let additionSeparator = options.additionSeparator ? options.additionSeparator : '|';
   let resultAddition = arrAddition.join(additionSeparator);
-   let string = String(str);
+  
   let arrStr = [];
   if(options.repeatTimes){
     for(let i=0; i<options.repeatTimes; i++){
       arrStr.push(string);
       
     }
-    if(options.addition){
-      for(let i=0; i< arrStr.length; i++){
-        arrStr[i] = arrStr[i] + resultAddition;
-      }
-    }////////////////
+    ////////////////
   } else{ arrStr.push(string)}
+  //let optAdd = String(options.addition);  object.propName !== undefined
+  if(options.addition !== undefined){
+    for(let i=0; i< arrStr.length; i++){
+      arrStr[i] = arrStr[i] + resultAddition;
+    }
+  }
   let separator = options.separator? options.separator:'+';
   return arrStr.join(separator);
   // remove line with error and write your code here
